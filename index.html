@@ -54,11 +54,24 @@
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
+    /* Animation du titre */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
       font-size: 2.8rem;
       font-weight: 700;
       color: var(--green-dark);
       letter-spacing: 0.05em;
+      animation: fadeInUp 1s ease forwards;
     }
 
     /* Grid des membres */
@@ -201,7 +214,7 @@
   <div class="container">
     <header>
       <img src="logo.png" alt="EcoCrops Logo" class="logo" />
-      <h1>🌱 Notre Équipe Engagée 🌱</h1>
+      <h1>🌱 Équipe EcoCrops – Contactez-nous 🌱</h1>
     </header>
 
     <section class="team-grid">
@@ -274,7 +287,7 @@
     </div>
 
     <footer class="footer">
-      <p>🌿 Contactez-nous : contact@ecocrops.com | +212 6 12 34 56 78 🌿</p>
+      <p>🌿 Contactez-nous : contact@ecocrops.com | +212 6 23 89 81 06 🌿</p>
       <p>© 2024 EcoCrops - Tous droits réservés</p>
     </footer>
   </div>
