@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacts Équipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
+    .card {
+      background: white;
+      color: #333;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    }
+    .card h2 {
+      margin-bottom: 10px;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #2a5298;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+    .card a:hover {
+      background-color: #1e3c72;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌟 Choisissez un contact LinkedIn</h1>
+  <div class="card-container">
+    <div class="card">
+      <h2>Arib Aymane</h2>
+      <p>Contact LinkedIn</p>
+      <a href="https://www.linkedin.com/in/aymane-arib-234039254/" target="_blank">Voir le profil</a>
+    </div>
+    <div class="card">
+      <h2>Asselgui Maysae</h2>
+      <p>Contact LinkedIn</p>
+      <a href="https://www.linkedin.com/in/maysae-asselgui-3a67512a2/" target="_blank">Voir le profil</a>
+    </div>
+    <div class="card">
+      <h2>Kenza Abou El Kasem</h2>
+      <p>Contact LinkedIn</p>
+      <a href="https://www.linkedin.com/in/kenza-abou-el-kasem/" target="_blank">Voir le profil</a>
+    </div>
+    <div class="card">
+      <h2>Manal El-bakkouri</h2>
+      <p>Contact LinkedIn</p>
+      <a href="https://www.linkedin.com/in/manal-el-bakkouri-49b5a0295/" target="_blank">Voir le profil</a>
+    </div>
+  </div>
+  <footer>© 2025 Équipe GreenPulse</footer>
+</body>
+</html>
