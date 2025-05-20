@@ -50,7 +50,7 @@
       justify-content: center;
       gap: 2rem;
       margin-bottom: 3rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .logo {
@@ -67,6 +67,9 @@
       letter-spacing: 0.05em;
       user-select: none;
       white-space: nowrap;
+      max-width: calc(100% - 420px); /* Laisse de la place pour le logo + gap */
+      overflow: hidden;
+      text-overflow: ellipsis;
       animation: fadeInUp 1s ease forwards;
     }
 
