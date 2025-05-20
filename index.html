@@ -43,18 +43,19 @@
       width: 100%;
     }
 
-    /* Header modifié : logo + slogan sur la même ligne */
+    /* Header : logo + slogan sur la même ligne */
     header {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-bottom: 3rem;
       flex-wrap: wrap;
     }
 
     .logo {
       width: 400px;
+      height: auto;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
       flex-shrink: 0;
     }
@@ -66,6 +67,7 @@
       letter-spacing: 0.05em;
       user-select: none;
       white-space: nowrap;
+      animation: fadeInUp 1s ease forwards;
     }
 
     /* Animation du titre */
@@ -80,14 +82,10 @@
       }
     }
 
-    .header-text {
-      animation: fadeInUp 1s ease forwards;
-    }
-
     /* Grid des membres */
-   .team-grid {
+    .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(280px, 1fr)); /* min 280px par colonne */
+      grid-template-columns: repeat(4, minmax(280px, 1fr));
       gap: 2rem;
     }
 
@@ -215,8 +213,13 @@
     }
 
     @media (max-width: 600px) {
-      h1, .header-text {
-        font-size: 1.8rem;
+      .logo {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .header-text {
+        font-size: 1.6rem;
       }
 
       .member-photo {
@@ -236,7 +239,6 @@
     <header>
       <img src="logo.png" alt="EcoCrops Logo" class="logo" />
       <div class="header-text">🌱 Équipe EcoCrops – Contactez-nous 🌱</div>
-      <br><br><br>
     </header>
 
     <section class="team-grid">
