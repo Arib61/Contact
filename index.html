@@ -43,15 +43,29 @@
       width: 100%;
     }
 
+    /* Header modifié : logo + slogan sur la même ligne */
     header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
       margin-bottom: 3rem;
+      flex-wrap: wrap;
     }
 
     .logo {
-      width: 400px;
-      margin-bottom: 1rem;
+      width: 120px;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      flex-shrink: 0;
+    }
+
+    .header-text {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      letter-spacing: 0.05em;
+      user-select: none;
+      white-space: nowrap;
     }
 
     /* Animation du titre */
@@ -66,18 +80,14 @@
       }
     }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      letter-spacing: 0.05em;
+    .header-text {
       animation: fadeInUp 1s ease forwards;
     }
 
     /* Grid des membres */
-    .team-grid {
+   .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(280px, 1fr)); /* min 280px par colonne */
       gap: 2rem;
     }
 
@@ -193,9 +203,20 @@
     }
 
     /* Responsive */
+    @media (max-width: 800px) {
+      header {
+        justify-content: center;
+      }
+
+      .header-text {
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+      h1, .header-text {
+        font-size: 1.8rem;
       }
 
       .member-photo {
@@ -214,7 +235,7 @@
   <div class="container">
     <header>
       <img src="logo.png" alt="EcoCrops Logo" class="logo" />
-      <h1>🌱 Équipe EcoCrops – Contactez-nous 🌱</h1>
+      <div class="header-text">🌱 Équipe EcoCrops – Contactez-nous 🌱</div>
     </header>
 
     <section class="team-grid">
@@ -248,7 +269,7 @@
 
       <article class="member-card">
         <img src="4.png" alt="Kenza Abou El Kasem" class="member-photo" />
-        <h2 class="member-name">Kenza Abou ElKasem</h2>
+        <h2 class="member-name">Kenza Abou El Kasem</h2>
         <div class="social-container">
           <a
             href="https://www.linkedin.com/in/kenza-abou-el-kasem/"
