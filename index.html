@@ -22,129 +22,261 @@
       --shadow-light: rgba(0, 0, 0, 0.08);
     }
 
-    body, html {
-      margin: 0; padding: 0; height: 100%;
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('/mnt/data/9ce8a61f-3225-42a1-9558-4aa270fd61c5.png') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
     }
 
-    /* Overlay sombre et flou */
-    body::before {
-      content: "";
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(5px);
-      z-index: -1;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 6rem 1rem 4rem;
-      max-width: 900px;
+    .container {
+      max-width: 1100px;
       width: 100%;
     }
 
-    .hero-logo {
-      width: 160px;
-      margin: 0 auto 1.5rem;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
-    .project-title {
-      font-weight: 700;
-      font-size: 3.5rem;
+    .logo {
+      width: 130px;
       margin-bottom: 1rem;
-      color: white;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--green-dark);
       letter-spacing: 0.05em;
     }
 
-    .hero-slogan {
+    /* Grid des membres */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    /* Carte membre */
+    .member-card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2.5rem 1.5rem 1.5rem;
+      box-shadow: 0 8px 24px var(--shadow-light);
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Photo ronde */
+    .member-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--green-primary);
+      margin: -90px auto 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Nom membre */
+    .member-name {
       font-weight: 700;
-      font-size: 2.2rem;
+      font-size: 1.3rem;
+      color: var(--green-dark);
       margin-bottom: 1rem;
-      color: white;
-    }
-
-    .hero-slogan .highlight {
-      color: #27d25f; /* vert vif */
-    }
-
-    .hero-subtitle {
-      font-weight: 500;
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.5;
-      color: #d6d6d6;
-    }
-
-    .btn-discover {
-      background-color: #27d25f;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.9rem 2.5rem;
-      border-radius: 9999px;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      box-shadow: 0 6px 16px rgba(39, 210, 95, 0.5);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
       user-select: none;
     }
 
-    .btn-discover:hover {
-      background-color: #1bbb50;
-      transform: scale(1.05);
-      box-shadow: 0 10px 24px rgba(39, 210, 95, 0.7);
+    /* Liens réseaux */
+    .social-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .btn-discover svg {
-      animation: bounce 2s infinite;
-      height: 18px;
-      width: 18px;
-      stroke-width: 2;
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    .social-link.linkedin {
+      background: linear-gradient(45deg, #0077b5, #00a0dc);
     }
 
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Instagram du projet, bouton central */
+    .project-instagram {
+      margin: 3rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .project-instagram a {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+      padding: 0.9rem 2.2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(252, 176, 69, 0.4);
+      transition: background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .project-instagram a:hover {
+      background: linear-gradient(45deg, #fcb045, #fd1d1d, #833ab4);
+      box-shadow: 0 10px 28px rgba(252, 176, 69, 0.6);
+    }
+
+    /* Footer */
+    footer.footer {
+      text-align: center;
+      color: #555;
+      font-size: 0.95rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #ddd;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .member-photo {
+        width: 110px;
+        height: 110px;
+        margin-top: -70px;
+      }
+
+      .member-card {
+        padding: 2rem 1rem 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <section class="hero" role="banner" aria-label="Section principale d'introduction EcoCrops">
-    <img src="logo.png" alt="Logo EcoCrops" class="hero-logo" />
-    <h1 class="project-title">EcoCrops</h1>
-    <h2 class="hero-slogan">
-      Transformons l'Agriculture <span class="highlight">au Maroc</span>
-    </h2>
-    <p class="hero-subtitle">
-      Bienvenue sur EcoCrop — Votre Partenaire pour une Agriculture Durable.<br />
-      EcoCrop vous accompagne dans votre transition vers une agriculture plus durable. Que vous soyez Agriculteur ou Ingénieur Agronome, nos outils vous aident à optimiser vos cultures tout en préservant l'environnement.
-    </p>
-    <button class="btn-discover" aria-label="Découvrir les fonctionnalités">
-      Découvrir
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="EcoCrops Logo" class="logo" />
+      <h1>🌱 Notre Équipe Engagée 🌱</h1>
+    </header>
+
+    <section class="team-grid">
+      <article class="member-card">
+        <img src="1.png" alt="Arib Aymane" class="member-photo" />
+        <h2 class="member-name">Arib Aymane</h2>
+        <div class="social-container">
+          <a
+            href="https://www.linkedin.com/in/aymane-arib-234039254/"
+            class="social-link linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin social-icon"></i>Profil LinkedIn</a
+          >
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img src="2.png" alt="Asselgui Maysae" class="member-photo" />
+        <h2 class="member-name">Asselgui Maysae</h2>
+        <div class="social-container">
+          <a
+            href="https://www.linkedin.com/in/maysae-asselgui-3a67512a2/"
+            class="social-link linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin social-icon"></i>Profil LinkedIn</a
+          >
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img src="3.png" alt="Kenza Abou El Kasem" class="member-photo" />
+        <h2 class="member-name">Kenza Abou El Kasem</h2>
+        <div class="social-container">
+          <a
+            href="https://www.linkedin.com/in/kenza-abou-el-kasem/"
+            class="social-link linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin social-icon"></i>Profil LinkedIn</a
+          >
+        </div>
+      </article>
+
+      <article class="member-card">
+        <img src="4.png" alt="Manal El-bakkouri" class="member-photo" />
+        <h2 class="member-name">Manal El-bakkouri</h2>
+        <div class="social-container">
+          <a
+            href="https://www.linkedin.com/in/manal-el-bakkouri-49b5a0295/"
+            class="social-link linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin social-icon"></i>Profil LinkedIn</a
+          >
+        </div>
+      </article>
+    </section>
+
+    <div class="project-instagram">
+      <a
+        href="https://instagram.com/ecocrops_maroc"
+        class="social-link"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-  </section>
+        <i class="fab fa-instagram social-icon"></i>Suivez notre projet sur Instagram
+      </a>
+    </div>
+
+    <footer class="footer">
+      <p>🌿 Contactez-nous : contact@ecocrops.com | +212 6 12 34 56 78 🌿</p>
+      <p>© 2024 EcoCrops - Tous droits réservés</p>
+    </footer>
+  </div>
 </body>
 </html>
